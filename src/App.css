@@ -1,0 +1,15 @@
+.Content {
+  width: 95%;
+  height: 100%;
+  text-align: center;
+  margin: 130px auto 50px auto;
+  padding: 50px 5px;
+  border-radius: 3px;
+  background-color: rgba(0, 0, 255, 0.03);
+}
+
+@media (min-width: 500px) {
+  .Content {
+    width: 80%;
+  }
+}
