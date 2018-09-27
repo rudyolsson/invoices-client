@@ -1,0 +1,21 @@
+.TableButton {
+  border: none !important;
+}
+
+.TableButton button {
+  width: 90%;
+}
+
+.DateInput {
+  background-color: rgba(0, 0, 255, 0.15);
+  margin: 0;
+  padding: 2px 10px;
+  font-size: 0.9em;
+  height: 100%;
+  width: 92%;
+  border: none;
+}
+
+.DateInput:focus {
+  outline: none;
+}
