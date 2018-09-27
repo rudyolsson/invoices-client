@@ -1,8 +1,10 @@
-const INITIAL_STATE = {
-  authenticated: '',
-  errorMessage: ''
-};
+import { combineReducers } from 'redux';
+import { reducer as formReducer } from 'redux-form';
+import auth from './auth';
+import invoices from './invoices';
 
-export default function(state = INITIAL_STATE, action) {
-  return state;
-}
+export default combineReducers({
+  auth,
+  invoices,
+  form: formReducer
+});
