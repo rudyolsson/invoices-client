@@ -49,6 +49,13 @@ export const authCheckState = () => {
   };
 };
 
+export const removeAuthError = () => {
+  return {
+    type: AUTH_ERROR,
+    payload: ''
+  };
+};
+
 export const removeLocalToken = () => {
   localStorage.removeItem('token');
   return {

@@ -23,7 +23,6 @@ export const newInvoice = (formProps, callback) => async dispatch => {
       headers: { 'x-auth': token },
       data: formProps
     });
-    callback();
     dispatch(updateAllInvoices(response.data.doc));
   } catch (err) {
     console.log(err);

@@ -1,4 +1,10 @@
-export { signup, signin, signout, authCheckState } from './auth';
+export {
+  signup,
+  signin,
+  signout,
+  authCheckState,
+  removeAuthError
+} from './auth';
 
 export {
   fetchInvoices,
