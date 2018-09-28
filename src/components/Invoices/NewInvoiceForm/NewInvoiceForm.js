@@ -8,8 +8,14 @@ import classes from './NewInvoiceForm.css';
 import * as actions from '../../../store/actions';
 
 const required = value => (value ? undefined : 'Required');
-
-const warningStyle = { marginLeft: '5px', color: 'red' };
+const number = value =>
+  value && isNaN(Number(value)) ? 'Must be a number' : undefined;
+const warningStyle = {
+  marginLeft: '5px',
+  color: 'red',
+  fontWeight: 'normal',
+  fontSize: '0.8em'
+};
 const renderField = ({
   input,
   label,
@@ -44,57 +50,56 @@ class newInvoiceForm extends Component {
 
   render() {
     return (
-      <div>
+      <div className={classes.NewInvoiceForm}>
         <Button clicked={this.onClickHandler}>Add A New Invoice</Button>
         {this.state.show ? (
-          <form
-            onSubmit={this.props.handleSubmit(this.onSubmit)}
-            className={classes.NewInvoiceForm}
-          >
-            <fieldset>
-              <label>Amount</label>
-              <Field
-                name="amount"
-                type="text"
-                autoComplete="none"
-                component={renderField}
-                validate={required}
-              />
-            </fieldset>
-            <fieldset>
-              <label>Date Due</label>
-              <Field
-                name="toBePaidOn"
-                type="text"
-                component={renderField}
-                autoComplete="none"
-                validate={required}
-              />
-            </fieldset>
-            <fieldset>
-              <label>Customer</label>
-              <Field
-                name="customerName"
-                type="text"
-                component={renderField}
-                autoComplete="none"
-                validate={required}
-              />
-            </fieldset>
-            <fieldset>
-              <label>Description</label>
-              <Field
-                name="description"
-                type="text"
-                component={renderField}
-                autoComplete="none"
-                validate={required}
-              />
-            </fieldset>
-            <Button type="submit" disabled={this.props.submitting}>
-              Save
-            </Button>
-          </form>
+          <div style={{ marginTop: '20px' }}>
+            <form onSubmit={this.props.handleSubmit(this.onSubmit)}>
+              <fieldset>
+                <label>Amount</label>
+                <Field
+                  name="amount"
+                  type="text"
+                  autoComplete="none"
+                  component={renderField}
+                  validate={[required, number]}
+                />
+              </fieldset>
+              <fieldset>
+                <label>Date Due (DD/MM/YYYY)</label>
+                <Field
+                  name="toBePaidOn"
+                  type="text"
+                  component={renderField}
+                  autoComplete="none"
+                  validate={required}
+                />
+              </fieldset>
+              <fieldset>
+                <label>Customer</label>
+                <Field
+                  name="customerName"
+                  type="text"
+                  component={renderField}
+                  autoComplete="none"
+                  validate={required}
+                />
+              </fieldset>
+              <fieldset>
+                <label>Description</label>
+                <Field
+                  name="description"
+                  type="text"
+                  component={renderField}
+                  autoComplete="none"
+                  validate={required}
+                />
+              </fieldset>
+              <Button type="submit" disabled={this.props.submitting}>
+                Save
+              </Button>
+            </form>
+          </div>
         ) : null}
       </div>
     );

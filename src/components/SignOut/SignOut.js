@@ -7,6 +7,7 @@ import * as actions from '../../store/actions';
 class Signout extends Component {
   componentDidMount() {
     this.props.signout();
+    this.props.removeAuthError();
   }
 
   render() {

@@ -1,15 +1,46 @@
 .Invoices {
   align-content: center;
+  width: 90%;
+  margin: 0 auto;
 }
 
 .Table {
+  background-color: #fff;
   width: 100%;
+  padding: 0;
+  border-radius: 10px;
+  box-shadow: 0 0px 40px 0px rgba(0, 0, 0, 0.15);
 }
 
-.Table,
-.Table th,
-.Table td {
-  border: 1px solid black;
+tr:nth-child(even) {
+  background-color: #f8f6ff;
+}
+
+th:first-of-type {
+  border-top-left-radius: 10px;
+}
+
+th:last-of-type {
+  border-top-right-radius: 10px;
+}
+
+th,
+td {
   margin: 0;
-  padding: 0;
+  padding: 16px 0;
+  font-weight: unset;
+}
+
+th {
+  font-size: 18px;
+  color: #fff;
+  line-height: 1.4;
+  background-color: #6c7ae0;
+}
+
+td {
+  font-size: 15px;
+  color: #808080;
+  line-height: 1.4;
+  max-width: 300px !important;
 }

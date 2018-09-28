@@ -44,20 +44,23 @@ class Invoices extends Component {
       <div className={classes.Invoices}>
         <h1>Invoices</h1>
         <NewInvoiceForm />
-        <table className={classes.Table}>
-          <thead>
-            <tr>
-              <th>Date Due (yyyy-mm-dd)</th>
-              <th>Reference No</th>
-              <th>Customer</th>
-              <th>Amount Due</th>
-              <th>Date Paid (yyyy-mm-dd)</th>
-              <th>Status</th>
-              <th>Description</th>
-            </tr>
-          </thead>
-          <tbody>{rows}</tbody>
-        </table>
+        <div style={{ marginTop: '20px' }}>
+          <table className={classes.Table}>
+            <thead>
+              <tr>
+                <th>Date Due (DD/MM/YYYY)</th>
+                <th>Reference No.</th>
+                <th>Customer</th>
+                <th>Amount Due</th>
+                <th>Date Paid (DD/MM/YYYY)</th>
+                <th>Status</th>
+                <th>Description</th>
+                <th />
+              </tr>
+            </thead>
+            <tbody>{rows}</tbody>
+          </table>
+        </div>
       </div>
     );
   }

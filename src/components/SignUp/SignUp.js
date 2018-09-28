@@ -5,8 +5,13 @@ import { compose } from 'redux';
 
 import Button from '../UI/Button/Button';
 import * as actions from '../../store/actions';
+import classes from './SignUp.css';
 
 class Signup extends Component {
+  componentDidMount() {
+    this.props.removeAuthError();
+  }
+
   onSubmit = formProps => {
     this.props.signup(formProps, () => {
       this.props.history.push('/invoices');
@@ -17,7 +22,7 @@ class Signup extends Component {
     const { handleSubmit, errorMessage } = this.props;
 
     return (
-      <div>
+      <div className={classes.SignUp}>
         <h1>Sign Up</h1>
         <form onSubmit={handleSubmit(this.onSubmit)}>
           <fieldset>

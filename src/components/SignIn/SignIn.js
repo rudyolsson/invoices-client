@@ -5,8 +5,13 @@ import { compose } from 'redux';
 
 import Button from '../UI/Button/Button';
 import * as actions from '../../store/actions';
+import classes from './SignIn.css';
 
 class Signin extends Component {
+  componentDidMount() {
+    this.props.removeAuthError();
+  }
+
   onSubmit = formProps => {
     this.props.signin(formProps, () => {
       this.props.history.push('/invoices');
@@ -17,7 +22,7 @@ class Signin extends Component {
     const { handleSubmit, errorMessage } = this.props;
 
     return (
-      <div>
+      <div className={classes.SignIn}>
         <h1>Sign In</h1>
         <form onSubmit={handleSubmit(this.onSubmit)}>
           <fieldset>
@@ -38,7 +43,12 @@ class Signin extends Component {
               autoComplete="none"
             />
           </fieldset>
-          <div style={{ marginBottom: '20px', color: 'red' }}>
+          <div
+            style={{
+              marginBottom: '20px',
+              color: 'red'
+            }}
+          >
             {errorMessage}
           </div>
           <Button>Sign In</Button>
