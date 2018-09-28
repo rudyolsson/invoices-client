@@ -3,7 +3,12 @@ import React from 'react';
 import classes from './Button.css';
 
 export default props => (
-  <button className={classes.Button} onClick={props.clicked}>
+  <button
+    type={props.type}
+    className={classes.Button}
+    onClick={props.clicked}
+    onSubmit={props.submit}
+  >
     {props.children}
   </button>
 );

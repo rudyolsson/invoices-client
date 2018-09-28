@@ -1,17 +1,32 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
-import Button from '../../UI/Button/Button';
+import * as actions from '../../../store/actions';
 import classes from './TableRow.css';
 
 class TableRow extends Component {
   state = {
-    editing: false
+    editing: false,
+    value: ''
   };
 
-  onEditHandler = () => {
-    this.setState(prevState => {
-      return { editing: !prevState.editing };
-    });
+  onEditHandler = () => {};
+
+  onChangeHandler = e => {
+    this.setState({ value: e.target.value });
+  };
+
+  onSubmitHandler = id => {
+    if (!this.state.editing) {
+      this.setState(prevState => {
+        return { editing: !prevState.editing };
+      });
+    } else {
+      this.props.updateInvoice(this.state.value, id);
+      this.setState(prevState => {
+        return { editing: !prevState.editing, value: '' };
+      });
+    }
   };
 
   render() {
@@ -25,14 +40,18 @@ class TableRow extends Component {
       description
     } = this.props;
     return (
-      <tr>
+      <tr className={classes.TableRow}>
         <td>{toBePaidOn}</td>
         <td>{_id}</td>
         <td>{customerName}</td>
         <td>{amount}</td>
         <td>
           {this.state.editing ? (
-            <input className={classes.DateInput} />
+            <input
+              className={classes.DateInput}
+              onChange={this.onChangeHandler}
+              value={this.state.value}
+            />
           ) : (
             completedAt
           )}
@@ -41,9 +60,9 @@ class TableRow extends Component {
         <td>{description}</td>
         <td className={classes.TableButton}>
           {completed ? null : (
-            <Button clicked={this.onEditHandler}>
+            <button onClick={() => this.onSubmitHandler(_id)}>
               {!this.state.editing ? 'Pay' : 'Save'}
-            </Button>
+            </button>
           )}
         </td>
       </tr>
@@ -51,4 +70,7 @@ class TableRow extends Component {
   }
 }
 
-export default TableRow;
+export default connect(
+  null,
+  actions
+)(TableRow);

@@ -7,7 +7,7 @@ import classes from './Header.css';
 
 class Header extends Component {
   setNavLinks = () => {
-    if (this.props.invoices > 0) {
+    if (this.props.authenticated === '') {
       return (
         <div>
           <NavLink to="/signup">Sign Up</NavLink>

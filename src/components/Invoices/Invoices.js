@@ -1,15 +1,27 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
+import NewInvoiceForm from './NewInvoiceForm/NewInvoiceForm';
 import TableRow from './TableRow/TableRow';
+import Button from '../UI/Button/Button';
 import * as actions from '../../store/actions';
 import classes from './Invoices.css';
-import 'react-table/react-table.css';
 
 class Invoices extends Component {
   componentDidMount() {
+    this.shouldNavigateAway();
     this.props.fetchInvoices();
   }
+
+  componentDidUpdate() {
+    this.shouldNavigateAway();
+  }
+
+  shouldNavigateAway = () => {
+    if (!this.props.authenticated) {
+      this.props.history.push('/');
+    }
+  };
 
   render() {
     let rows = null;
@@ -30,7 +42,8 @@ class Invoices extends Component {
     }
     return (
       <div className={classes.Invoices}>
-        <h2>Invoices</h2>
+        <h1>Invoices</h1>
+        <NewInvoiceForm />
         <table className={classes.Table}>
           <thead>
             <tr>
@@ -52,7 +65,8 @@ class Invoices extends Component {
 
 const mapStateToProps = state => {
   return {
-    invoices: state.invoices.invoices
+    invoices: state.invoices.invoices,
+    authenticated: state.auth.authenticated
   };
 };
 
