@@ -10,5 +10,6 @@ export {
   fetchInvoices,
   updateInvoice,
   newInvoice,
-  updateAllInvoices
+  updateAllInvoices,
+  sortByPaidStatus
 } from './invoices';

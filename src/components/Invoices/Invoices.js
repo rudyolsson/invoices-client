@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 
 import NewInvoiceForm from './NewInvoiceForm/NewInvoiceForm';
 import TableRow from './TableRow/TableRow';
-import Button from '../UI/Button/Button';
 import * as actions from '../../store/actions';
 import classes from './Invoices.css';
 
@@ -21,6 +20,10 @@ class Invoices extends Component {
     if (!this.props.authenticated) {
       this.props.history.push('/');
     }
+  };
+
+  sortClickHandler = () => {
+    this.props.sortByPaidStatus(this.props.invoices);
   };
 
   render() {
@@ -55,7 +58,12 @@ class Invoices extends Component {
                 <th>Date Paid (DD/MM/YYYY)</th>
                 <th>Status</th>
                 <th>Description</th>
-                <th />
+                <th
+                  onClick={this.sortClickHandler}
+                  style={{ cursor: 'pointer' }}
+                >
+                  Sort By Status
+                </th>
               </tr>
             </thead>
             <tbody>{rows}</tbody>

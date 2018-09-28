@@ -1,3 +1,7 @@
+.Home h1 {
+  margin-bottom: 50px;
+}
+
 .Home a {
   background-color: blue;
   border-radius: 5px;

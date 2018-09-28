@@ -50,3 +50,12 @@ export const updateInvoice = (date, id) => async dispatch => {
     console.log(err);
   }
 };
+
+export const sortByPaidStatus = invoices => {
+  let sorted = [...invoices];
+  sorted.sort(
+    (a, b) =>
+      a.completed !== b.completed ? 1 : b.completed !== a.completed ? -1 : 0
+  );
+  return { type: FETCH_INVOICES, payload: sorted };
+};

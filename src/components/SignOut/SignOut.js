@@ -13,7 +13,13 @@ class Signout extends Component {
   render() {
     return (
       <div>
-        <h1>Have a nice day!</h1>
+        <h1
+          style={{
+            marginBottom: '50px'
+          }}
+        >
+          Have A Nice Day!
+        </h1>
         <LinkButton link="/signup">Sign Up</LinkButton>
         <LinkButton link="/signin">Sign In</LinkButton>
       </div>
