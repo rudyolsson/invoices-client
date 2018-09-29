@@ -3,7 +3,8 @@ export {
   signin,
   signout,
   authCheckState,
-  removeAuthError
+  removeAuthError,
+  removeLocalToken
 } from './auth';
 
 export {

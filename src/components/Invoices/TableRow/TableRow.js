@@ -51,6 +51,7 @@ class TableRow extends Component {
               className={classes.DateInput}
               onChange={this.onChangeHandler}
               value={this.state.value}
+              type="date"
             />
           ) : (
             completedAt

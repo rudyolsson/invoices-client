@@ -51,11 +51,11 @@ class Invoices extends Component {
           <table className={classes.Table}>
             <thead>
               <tr>
-                <th>Date Due (DD/MM/YYYY)</th>
+                <th>Date Due (YYYY/MM/DD)</th>
                 <th>Reference No.</th>
                 <th>Customer</th>
                 <th>Amount Due</th>
-                <th>Date Paid (DD/MM/YYYY)</th>
+                <th>Date Paid (YYYY/MM/DD)</th>
                 <th>Status</th>
                 <th>Description</th>
                 <th

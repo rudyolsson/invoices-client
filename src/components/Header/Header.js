@@ -26,7 +26,7 @@ class Header extends Component {
   render() {
     return (
       <header className={classes.Header}>
-        <NavLink to="/" exact style={{ width: '193px' }}>
+        <NavLink className={classes.Home} to="/" exact>
           Home
         </NavLink>
         <Logo />

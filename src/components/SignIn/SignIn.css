@@ -6,11 +6,13 @@
 .SignIn form fieldset:first-of-type {
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
+  border-bottom: none;
 }
 
 .SignIn form fieldset:last-of-type {
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
+  border-top: none;
 }
 
 .SignIn form fieldset label,

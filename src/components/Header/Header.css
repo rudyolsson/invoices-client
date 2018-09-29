@@ -6,7 +6,7 @@
   top: 0;
   left: 0;
   position: fixed;
-  background-color: blue;
+  background-color: #3643ff;
   z-index: 100;
   box-sizing: border-box;
   margin: 0;
@@ -26,4 +26,10 @@
 .Header a:active,
 .Header a.active {
   color: rgba(255, 255, 255, 0.5);
+}
+
+@media (min-width: 500px) {
+  .Home {
+    width: 175px;
+  }
 }

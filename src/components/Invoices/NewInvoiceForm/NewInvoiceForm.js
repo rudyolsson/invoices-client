@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
-import { reduxForm, Field } from 'redux-form';
+import { reduxForm, Field, reset } from 'redux-form';
 
 import Button from '../../UI/Button/Button';
 import classes from './NewInvoiceForm.css';
 import * as actions from '../../../store/actions';
 
+// REDUX FORM VALIDATOINS -------
 const required = value => (value ? undefined : 'Required');
 const number = value =>
   value && isNaN(Number(value)) ? 'Must be a number' : undefined;
@@ -32,6 +33,7 @@ const renderField = ({
     </div>
   </div>
 );
+//------------
 
 class newInvoiceForm extends Component {
   state = {
@@ -40,6 +42,7 @@ class newInvoiceForm extends Component {
 
   onSubmit = formProps => {
     this.props.newInvoice(formProps, this.setState({ show: false }));
+    this.props.dispatch(reset('newInvoiceForm'));
   };
 
   onClickHandler = () => {
@@ -59,17 +62,17 @@ class newInvoiceForm extends Component {
                 <label>Amount</label>
                 <Field
                   name="amount"
-                  type="text"
+                  type="number"
                   autoComplete="none"
                   component={renderField}
                   validate={[required, number]}
                 />
               </fieldset>
               <fieldset>
-                <label>Date Due (DD/MM/YYYY)</label>
+                <label>Date Due (YYYY/MM/DD)</label>
                 <Field
                   name="toBePaidOn"
-                  type="text"
+                  type="date"
                   component={renderField}
                   autoComplete="none"
                   validate={required}
@@ -111,5 +114,5 @@ export default compose(
     null,
     actions
   ),
-  reduxForm({ form: 'signup' })
+  reduxForm({ form: 'newInvoiceForm' })
 )(newInvoiceForm);

@@ -8,6 +8,18 @@
   margin: 10px;
 }
 
+.SignUp form fieldset:first-of-type {
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  border-bottom: none;
+}
+
+.SignUp form fieldset:last-of-type {
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  border-top: none;
+}
+
 .SignUp form fieldset input {
   border-radius: 3px;
   background-color: #fff;
