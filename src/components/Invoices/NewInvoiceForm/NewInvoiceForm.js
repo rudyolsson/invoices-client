@@ -1,22 +1,22 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { compose } from 'redux';
-import { reduxForm, Field, reset } from 'redux-form';
-import PropTypes from 'prop-types';
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import { compose } from "redux";
+import { reduxForm, Field, reset } from "redux-form";
+import PropTypes from "prop-types";
 
-import Button from '../../UI/Button/Button';
-import classes from './NewInvoiceForm.css';
-import * as actions from '../../../store/actions';
+import Button from "../../UI/Button/Button";
+import classes from "./NewInvoiceForm.css";
+import * as actions from "../../../store/actions";
 
 // REDUX FORM VALIDATOINS -------
-const required = value => (value ? undefined : 'Required');
+const required = value => (value ? undefined : "Required");
 const number = value =>
-  value && isNaN(Number(value)) ? 'Must be a number' : undefined;
+  value && isNaN(Number(value)) ? "Must be a number" : undefined;
 const warningStyle = {
-  marginLeft: '5px',
-  color: 'red',
-  fontWeight: 'normal',
-  fontSize: '0.8em'
+  marginLeft: "5px",
+  color: "red",
+  fontWeight: "normal",
+  fontSize: "0.8em"
 };
 const renderField = ({
   input,
@@ -43,7 +43,7 @@ class NewInvoiceForm extends Component {
 
   onSubmit = formProps => {
     this.props.newInvoice(formProps, this.setState({ show: false }));
-    this.props.dispatch(reset('NewInvoiceForm'));
+    this.props.dispatch(reset("NewInvoiceForm"));
   };
 
   onClickHandler = () => {
@@ -57,7 +57,7 @@ class NewInvoiceForm extends Component {
       <div className={classes.NewInvoiceForm}>
         <Button clicked={this.onClickHandler}>Add A New Invoice</Button>
         {this.state.show ? (
-          <div style={{ marginTop: '20px' }}>
+          <div style={{ marginTop: "20px" }}>
             <form onSubmit={this.props.handleSubmit(this.onSubmit)}>
               <fieldset>
                 <label>Amount</label>
@@ -70,7 +70,7 @@ class NewInvoiceForm extends Component {
                 />
               </fieldset>
               <fieldset>
-                <label>Date Due (YYYY/MM/DD)</label>
+                <label>Date Due (YYYY-MM-DD)</label>
                 <Field
                   name="toBePaidOn"
                   type="date"
@@ -119,5 +119,5 @@ export default compose(
     null,
     actions
   ),
-  reduxForm({ form: 'NewInvoiceForm' })
+  reduxForm({ form: "NewInvoiceForm" })
 )(NewInvoiceForm);

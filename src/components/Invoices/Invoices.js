@@ -1,11 +1,11 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import PropTypes from "prop-types";
 
-import NewInvoiceForm from './NewInvoiceForm/NewInvoiceForm';
-import TableRow from './TableRow/TableRow';
-import * as actions from '../../store/actions';
-import classes from './Invoices.css';
+import NewInvoiceForm from "./NewInvoiceForm/NewInvoiceForm";
+import TableRow from "./TableRow/TableRow";
+import * as actions from "../../store/actions";
+import classes from "./Invoices.css";
 
 class Invoices extends Component {
   componentDidMount() {
@@ -19,7 +19,7 @@ class Invoices extends Component {
 
   shouldNavigateAway = () => {
     if (!this.props.authenticated) {
-      this.props.history.push('/');
+      this.props.history.push("/");
     }
   };
 
@@ -48,20 +48,20 @@ class Invoices extends Component {
       <div className={classes.Invoices}>
         <h1>Invoices</h1>
         <NewInvoiceForm />
-        <div style={{ marginTop: '20px' }}>
+        <div style={{ marginTop: "20px" }}>
           <table className={classes.Table}>
             <thead>
               <tr>
-                <th>Date Due (YYYY/MM/DD)</th>
+                <th>Date Due (YYYY-MM-DD)</th>
                 <th>Reference No.</th>
                 <th>Customer</th>
                 <th>Amount Due</th>
-                <th>Date Paid (YYYY/MM/DD)</th>
+                <th>Date Paid (YYYY-MM-DD)</th>
                 <th>Status</th>
                 <th>Description</th>
                 <th
                   onClick={this.sortClickHandler}
-                  style={{ cursor: 'pointer' }}
+                  style={{ cursor: "pointer" }}
                 >
                   Sort By Status
                 </th>
