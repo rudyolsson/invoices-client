@@ -5,9 +5,12 @@ import { FETCH_INVOICES, UPDATE_ALL_INVOICES } from './actionTypes';
 export const fetchInvoices = () => async dispatch => {
   try {
     const token = localStorage.getItem('token');
-    const response = await axios.get('http://localhost:3090/invoices', {
-      headers: { 'x-auth': token }
-    });
+    const response = await axios.get(
+      'https://invoices-server.herokuapp.com/invoices',
+      {
+        headers: { 'x-auth': token }
+      }
+    );
     dispatch({ type: FETCH_INVOICES, payload: response.data.invoices });
   } catch (err) {
     console.log(err);
@@ -18,7 +21,7 @@ export const newInvoice = (formProps, callback) => async dispatch => {
   const token = localStorage.getItem('token');
   try {
     const response = await axios({
-      url: 'http://localhost:3090/invoices/',
+      url: 'https://invoices-server.herokuapp.com/invoices/',
       method: 'post',
       headers: { 'x-auth': token },
       data: formProps
@@ -40,7 +43,7 @@ export const updateInvoice = (date, id) => async dispatch => {
   const token = localStorage.getItem('token');
   try {
     await axios({
-      url: `http://localhost:3090/invoices/${id}`,
+      url: `https://invoices-server.herokuapp.com/invoices/${id}`,
       method: 'put',
       headers: { 'x-auth': token },
       data: { completedAt: date }

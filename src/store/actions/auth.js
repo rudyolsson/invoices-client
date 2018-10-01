@@ -4,7 +4,7 @@ import { AUTH_USER, AUTH_ERROR } from './actionTypes';
 export const signup = (formProps, callback) => async dispatch => {
   try {
     const response = await axios.post(
-      'http://localhost:3090/signup',
+      'https://invoices-server.herokuapp.com/signup',
       formProps
     );
     dispatch({ type: AUTH_USER, payload: response.data.token });
@@ -18,7 +18,7 @@ export const signup = (formProps, callback) => async dispatch => {
 export const signin = (formProps, callback) => async dispatch => {
   try {
     const response = await axios.post(
-      'http://localhost:3090/signin',
+      'https://invoices-server.herokuapp.com/signin',
       formProps
     );
     dispatch({ type: AUTH_USER, payload: response.data.token });
@@ -32,7 +32,7 @@ export const signin = (formProps, callback) => async dispatch => {
 export const signout = () => async dispatch => {
   try {
     const token = localStorage.getItem('token');
-    await axios.delete('http://localhost:3090/signout', {
+    await axios.delete('https://invoices-server.herokuapp.com/signout', {
       headers: { 'x-auth': token }
     });
     dispatch(removeLocalToken());
