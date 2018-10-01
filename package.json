@@ -62,6 +62,7 @@
     "prettier": "^1.14.3"
   },
   "jest": {
+    "setupTestFrameworkScriptFile": "<rootDir>src/setupTests.js",
     "collectCoverageFrom": [
       "src/**/*.{js,jsx,mjs}"
     ],

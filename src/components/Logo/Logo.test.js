@@ -1,7 +1,7 @@
 import React from 'react';
 import { mount } from 'enzyme';
 
-import Footer from './Footer';
+import Logo from './Logo';
 import Root from '../../root';
 
 let wrapped;
@@ -9,7 +9,7 @@ let wrapped;
 beforeEach(() => {
   wrapped = mount(
     <Root>
-      <Footer />
+      <Logo />
     </Root>
   );
 });
@@ -18,7 +18,6 @@ afterEach(() => {
   wrapped.unmount();
 });
 
-it('should render a p and a div element', () => {
-  expect(wrapped.find('p').length).toEqual(1);
-  expect(wrapped.find('div').length).toEqual(1);
+it('should render an element', () => {
+  expect(wrapped.find('img').length).toEqual(1);
 });
