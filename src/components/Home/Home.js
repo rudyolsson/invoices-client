@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
 import LinkButton from '../UI/LinkButton/LinkButton';
 import classes from './Home.css';
@@ -32,6 +33,10 @@ const mapStateToProps = state => {
   return {
     authenticated: state.auth.authenticated
   };
+};
+
+Home.propTypes = {
+  authenticated: PropTypes.string
 };
 
 export default connect(mapStateToProps)(Home);

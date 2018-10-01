@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { reduxForm, Field } from 'redux-form';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
+import PropTypes from 'prop-types';
 
 import Button from '../UI/Button/Button';
 import * as actions from '../../store/actions';
@@ -62,6 +63,12 @@ const mapStateToProps = state => {
   return {
     errorMessage: state.auth.errorMessage
   };
+};
+
+Signin.propTypes = {
+  signin: PropTypes.func,
+  errorMessage: PropTypes.string,
+  removeAuthError: PropTypes.func
 };
 
 export default compose(

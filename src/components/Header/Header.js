@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
 import Logo from '../Logo/Logo';
 import classes from './Header.css';
@@ -40,6 +41,10 @@ const mapStateToProps = state => {
   return {
     authenticated: state.auth.authenticated
   };
+};
+
+Header.propTypes = {
+  authenticated: PropTypes.string
 };
 
 export default connect(mapStateToProps)(Header);

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
 import LinkButton from '../UI/LinkButton/LinkButton';
 import * as actions from '../../store/actions';
@@ -26,6 +27,11 @@ class Signout extends Component {
     );
   }
 }
+
+Signout.propTypes = {
+  signout: PropTypes.func,
+  removeAuthError: PropTypes.func
+};
 
 export default connect(
   null,

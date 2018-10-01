@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
 import * as actions from '../../../store/actions';
 import classes from './TableRow.css';
@@ -39,6 +40,9 @@ class TableRow extends Component {
       completedAt,
       description
     } = this.props;
+
+    const { editing, value } = this.state;
+
     return (
       <tr className={classes.TableRow}>
         <td>{toBePaidOn}</td>
@@ -46,11 +50,11 @@ class TableRow extends Component {
         <td>{customerName}</td>
         <td>{amount}</td>
         <td>
-          {this.state.editing ? (
+          {editing ? (
             <input
               className={classes.DateInput}
               onChange={this.onChangeHandler}
-              value={this.state.value}
+              value={value}
               type="date"
             />
           ) : (
@@ -62,7 +66,7 @@ class TableRow extends Component {
         <td className={classes.TableButton}>
           {completed ? null : (
             <button onClick={() => this.onSubmitHandler(_id)}>
-              {!this.state.editing ? 'Pay' : 'Save'}
+              {!editing ? 'Pay' : 'Save'}
             </button>
           )}
         </td>
@@ -70,6 +74,10 @@ class TableRow extends Component {
     );
   }
 }
+
+TableRow.propTypes = {
+  updateInvoice: PropTypes.func
+};
 
 export default connect(
   null,

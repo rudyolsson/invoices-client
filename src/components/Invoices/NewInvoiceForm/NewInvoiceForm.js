@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 import { reduxForm, Field, reset } from 'redux-form';
+import PropTypes from 'prop-types';
 
 import Button from '../../UI/Button/Button';
 import classes from './NewInvoiceForm.css';
@@ -35,14 +36,14 @@ const renderField = ({
 );
 //------------
 
-class newInvoiceForm extends Component {
+class NewInvoiceForm extends Component {
   state = {
     show: false
   };
 
   onSubmit = formProps => {
     this.props.newInvoice(formProps, this.setState({ show: false }));
-    this.props.dispatch(reset('newInvoiceForm'));
+    this.props.dispatch(reset('NewInvoiceForm'));
   };
 
   onClickHandler = () => {
@@ -109,10 +110,14 @@ class newInvoiceForm extends Component {
   }
 }
 
+NewInvoiceForm.propTypes = {
+  newInvoice: PropTypes.func
+};
+
 export default compose(
   connect(
     null,
     actions
   ),
-  reduxForm({ form: 'newInvoiceForm' })
-)(newInvoiceForm);
+  reduxForm({ form: 'NewInvoiceForm' })
+)(NewInvoiceForm);

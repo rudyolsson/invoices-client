@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
 import NewInvoiceForm from './NewInvoiceForm/NewInvoiceForm';
 import TableRow from './TableRow/TableRow';
@@ -79,6 +80,13 @@ const mapStateToProps = state => {
     invoices: state.invoices.invoices,
     authenticated: state.auth.authenticated
   };
+};
+
+Invoices.propTypes = {
+  fetchInvoices: PropTypes.func,
+  invoices: PropTypes.array,
+  authenticated: PropTypes.string,
+  sortByPaidStatus: PropTypes.func
 };
 
 export default connect(

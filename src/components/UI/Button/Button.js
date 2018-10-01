@@ -1,8 +1,9 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import classes from './Button.css';
 
-export default props => (
+const Button = props => (
   <button
     type={props.type}
     className={classes.Button}
@@ -12,3 +13,11 @@ export default props => (
     {props.children}
   </button>
 );
+
+Button.propTypes = {
+  type: PropTypes.string,
+  clicked: PropTypes.func,
+  submit: PropTypes.func
+};
+
+export default Button;
