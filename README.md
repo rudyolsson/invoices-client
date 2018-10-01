@@ -27,3 +27,4 @@ https://invoices-server.herokuapp.com/
 3. Fix bugs
 4. Refactor
 5. Move to passport authentication
+6. Add loading spinners
